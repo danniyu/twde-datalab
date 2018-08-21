@@ -12,7 +12,7 @@ def index():
 
 @app.route('/prediction')
 def get_prediction():
-  loaded_model = joblib.load('/Users/dyu/development/twde-datalab/model.pkl')
+  loaded_model = joblib.load('data/decision_tree/model.pkl')
 
   date_string = request.args.get('date')
 
@@ -43,8 +43,7 @@ def get_prediction():
   df = decision_tree.encode_categorical_columns(df)
   pred = loaded_model.predict(df)
 
-  return "%.2f" % pred[0]
+  return "%d" % pred[0]
 
 if __name__ == '__main__':
-    # decision_tree.load_model();
     app.run(debug=True)

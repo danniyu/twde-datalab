@@ -9,14 +9,6 @@ from sklearn import tree
 from sklearn import ensemble
 import evaluation
 
-def load_model():
-    original_train, original_validate = load_data()
-    train, validate = encode(original_train, original_validate)
-    model = make_model(train)
-    filename = 'model.pkl'
-    joblib.dump(model, filename)
-
-
 def load_data():
     filename = "data/splitter/train.csv"
     print("Loading data from {}".format(filename))
